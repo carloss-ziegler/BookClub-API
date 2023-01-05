@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import { router } from "./routes/router";
 import multer from "multer";
 import dotenv from "dotenv";
+import helmet from "helmet";
 
 dotenv.config();
 
@@ -17,10 +18,11 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 });
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://book-club-api.onrender.com"],
+    origin: ["http://localhost:3000", "https://bookclub-api-ctcw.onrender.com"],
   })
 );
 app.use(cookieParser());
+app.use(helmet());
 
 const PORT = process.env.PORT || 3001;
 
