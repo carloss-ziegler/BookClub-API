@@ -1,7 +1,8 @@
 //@ts-nocheck
+import { Request, Response } from "express";
 import { connection } from "../models/connection";
 
-const getNotification = async (req, res) => {
+const getNotification = async (req: Request, res: Response) => {
   const q = "SELECT * FROM notifications WHERE notificationsUserId = ?";
 
   const [rows] = await connection.query(q, [req.query.userId], (err, data) => {
@@ -11,7 +12,7 @@ const getNotification = async (req, res) => {
   return res.status(200).json(rows);
 };
 
-const addNotification = async (req, res) => {
+const addNotification = async (req: Request, res: Response) => {
   const q = "INSERT INTO notifications (notificationsUserId) VALUES (?)";
 
   const [rows] = await connection.query(q, [req.query.userId], (err, data) => {
@@ -21,7 +22,7 @@ const addNotification = async (req, res) => {
   return res.status(201).json(rows);
 };
 
-const removeNotification = async (req, res) => {
+const removeNotification = async (req: Request, res: Response) => {
   const q = "DELETE FROM notifications WHERE notificationsUserId = ?";
 
   const [rows] = await connection.query(q, [req.query.userId], (err, data) => {
