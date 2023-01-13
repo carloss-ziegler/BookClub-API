@@ -19,6 +19,9 @@ import notificationsController from "../controllers/notificationsController";
 // Cards
 import cardController from "../controllers/cardController";
 
+// Genres
+import genresController from "../controllers/genresController";
+
 export const router = express.Router();
 
 // Books
@@ -54,3 +57,6 @@ router.get("/cards", cardController.getCards);
 router.put("/cards", cardController.updateCard);
 router.post("/cards", cardController.addCard);
 router.delete("/cards/:id", cardController.deleteCard);
+
+// Genres
+router.get("/genres", genresController.getAllGenres);

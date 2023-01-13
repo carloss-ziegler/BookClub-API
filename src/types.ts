@@ -37,3 +37,9 @@ export interface NotificationsProps {
   id: string;
   notificationsUserId: string;
 }
+
+export interface IGenresProps {
+  id: string;
+  label: string;
+  type: string;
+}
